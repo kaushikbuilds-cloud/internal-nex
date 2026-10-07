@@ -5,13 +5,13 @@ from pydantic import BaseModel, EmailStr, field_validator
 
 
 def validate_password_strength(password: str) -> str:
-    """Shared server-side password policy: 8+ chars, at least one letter and one digit.
+    """Shared server-side password policy: 9+ chars, at least one letter and one digit.
 
     The backend must enforce this even though the frontend also checks it,
     because client-side validation can always be bypassed.
     """
-    if len(password) < 8:
-        raise ValueError("Password must be at least 8 characters long")
+    if len(password) < 9:
+        raise ValueError("Password must be at least 9 characters long")
     if not re.search(r"[A-Za-z]", password):
         raise ValueError("Password must contain at least one letter")
     if not re.search(r"\d", password):
