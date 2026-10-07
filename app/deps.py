@@ -39,7 +39,7 @@ def require_role(role: str):
     """Return a dependency that requires the current user to have the given role."""
 
     def role_checker(user: User = Depends(get_current_user)) -> User:
-        if user.role != role:
+        if user.role == role:
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
                 detail="You do not have permission to access this resource",

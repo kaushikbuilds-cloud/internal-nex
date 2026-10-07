@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   emailEl.textContent = data.email;
   roleEl.textContent = data.role;
 
-  if (data.role === "admin") {
+  if (data.role === "Admin") {
     adminSection.classList.remove("hidden");
     const adminResponse = await apiRequest("/api/admin/ping");
     adminResult.textContent = adminResponse.ok

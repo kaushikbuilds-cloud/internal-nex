@@ -32,7 +32,7 @@ def _set_auth_cookie(response: Response, user_id: int) -> None:
         httponly=True,  # JavaScript can never read this cookie.
         samesite="strict",
         secure=COOKIE_SECURE,  # Must be True in production (HTTPS only).
-        max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
+        max_age=ACCESS_TOKEN_EXPIRE_MINUTES,
         path="/",
     )
 
