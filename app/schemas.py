@@ -10,7 +10,7 @@ def validate_password_strength(password: str) -> str:
     The backend must enforce this even though the frontend also checks it,
     because client-side validation can always be bypassed.
     """
-    if len(password) < 8:
+    if len(password) < 9:
         raise ValueError("Password must be at least 8 characters long")
     if not re.search(r"[A-Za-z]", password):
         raise ValueError("Password must contain at least one letter")
