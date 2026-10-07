@@ -78,10 +78,16 @@ def login(request: Request, payload: UserLogin, response: Response, db: Session 
     return user
 
 
-@router.post("/logout")
-def logout(response: Response):
-    # Safe to call even when not logged in - it just clears whatever cookie is there.
-    response.delete_cookie(key=AUTH_COOKIE_NAME, path="/")
+@router.post("/logout", response_model=UserResponse)
+@limiter.limit("10/minute")
+def logout(response: Response, current_user: User = Depends(get_current_user)):
+    if current_user is None:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Not authenticated",
+        )
+
+    _set_auth_cookie(response, current_user.id)
     return {"message": "Logged out successfully"}
 
 
