@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Auth Starter</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <nav class="container" aria-label="Main navigation">
+      <a href="/" class="navbar__brand">Auth Starter</a>
+    </nav>
+  </header>
+
+  <main class="auth-wrapper">
+    <div class="auth-card">
+      <h1>Create Account</h1>
+
+      <p id="form-error" class="alert alert-error hidden" role="alert"></p>
+      <p id="form-success" class="alert alert-success hidden" role="status"></p>
+
+      <form id="register-form" novalidate>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-error" />
+          <span id="email-error" class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" autocomplete="new-password" required aria-describedby="password-error" />
+          <span id="password-error" class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" name="confirm-password" autocomplete="new-password" required aria-describedby="confirm-password-error" />
+          <span id="confirm-password-error" class="field-error"></span>
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn btn-primary btn-block">Sign Up</button>
+      </form>
+
+      <p class="auth-card__footer">
+        Already have an account? <a href="/login.html">Log in</a><br />
+        <a href="/">&larr; Back to home</a>
+      </p>
+    </div>
+  </main>
+
+  <script src="/static/js/common.js"></script>
+  <script src="/static/js/register.js"></script>
+</body>
+</html>

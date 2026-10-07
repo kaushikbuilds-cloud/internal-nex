@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Auth Starter</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <nav class="container" aria-label="Main navigation">
+      <a href="/" class="navbar__brand">Auth Starter</a>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <p id="dashboard-loading" class="loading">Loading your dashboard...</p>
+
+    <div id="dashboard-content" class="hidden">
+      <div class="dashboard__card">
+        <h1>Dashboard</h1>
+        <div class="dashboard__row">
+          <span class="dashboard__label">Email</span>
+          <span id="user-email"></span>
+        </div>
+        <div class="dashboard__row">
+          <span class="dashboard__label">Role</span>
+          <span id="user-role"></span>
+        </div>
+        <button id="logout-btn" type="button" class="btn btn-secondary" style="margin-top: 1rem;">Logout</button>
+      </div>
+
+      <div id="admin-section" class="dashboard__card hidden">
+        <h2>Admin Area</h2>
+        <p id="admin-result">Checking admin access...</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="/static/js/common.js"></script>
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

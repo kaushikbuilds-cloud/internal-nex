@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auth Starter</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <nav class="container" aria-label="Main navigation">
+      <span class="navbar__brand">Auth Starter</span>
+      <ul class="navbar__links">
+        <li><a href="/">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li id="nav-auth-links">
+          <a href="/login.html">Login</a>
+        </li>
+        <li id="nav-auth-links-signup">
+          <a href="/register.html" class="btn btn-primary">Sign Up</a>
+        </li>
+        <li id="nav-user-links" class="hidden" style="display:flex; align-items:center; gap:1rem;">
+          <span class="navbar__user" id="nav-user-email"></span>
+          <button id="nav-logout-btn" class="btn btn-secondary" type="button">Logout</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>A simple, secure authentication starter</h1>
+        <p>
+          Register, log in, and access a protected dashboard. Built with FastAPI,
+          SQLite, and plain HTML/CSS/JavaScript - no frameworks required.
+        </p>
+        <div class="hero__actions">
+          <a href="/register.html" class="btn btn-primary">Get Started</a>
+          <a href="/login.html" class="btn btn-secondary">Login</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="container">
+      <h2>Features</h2>
+      <div class="features">
+        <div class="card">
+          <h3>Secure Authentication</h3>
+          <p>Passwords are hashed with bcrypt and sessions use httpOnly JWT cookies, never localStorage.</p>
+        </div>
+        <div class="card">
+          <h3>Simple Dashboard</h3>
+          <p>A protected dashboard page that only signed-in users can view.</p>
+        </div>
+        <div class="card">
+          <h3>Role-Based Access</h3>
+          <p>An admin-only endpoint demonstrates simple role-based authorization.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div>
+          <div class="step__number">1</div>
+          <h3>Create account</h3>
+          <p>Sign up with your email and a password.</p>
+        </div>
+        <div>
+          <div class="step__number">2</div>
+          <h3>Login</h3>
+          <p>We issue a secure httpOnly cookie for your session.</p>
+        </div>
+        <div>
+          <div class="step__number">3</div>
+          <h3>Access dashboard</h3>
+          <p>View your account details on the protected dashboard.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Auth Starter. Built for learning purposes.</p>
+  </footer>
+
+  <script src="/static/js/common.js"></script>
+  <script src="/static/js/index.js"></script>
+</body>
+</html>
