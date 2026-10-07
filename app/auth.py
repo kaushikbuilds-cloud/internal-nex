@@ -44,3 +44,22 @@ def decode_access_token(token: str) -> dict | None:
         return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
     except JWTError:
         return None
+
+def login(request: Request, payload: UserLogin, response: Response, db: Session = Depends(get_db)):
+    email = payload.email.lower()
+    user = db.query(User).filter(User.email == email).first()
+
+    # Same generic error whether the email doesn't exist or the password is
+    # wrong, so we never reveal which account exists.
+    invalid_credentials = HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Invalid email or password",
+    )
+
+    if user is None:
+        raise invalid_credentials
+    if not verify_password(payload.password, user.hashed_password):
+        raise invalid_credentials
+
+    _set_auth_cookie(response, user.id)
+    return user
